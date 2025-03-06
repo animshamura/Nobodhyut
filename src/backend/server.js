@@ -7,16 +7,16 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 
-// ✅ CORS FIXED: Allow frontend requests
+// CORS FIXED: Allow frontend requests
 app.use(cors({
   origin: 'http://localhost:3000',  // Allow requests from frontend
   credentials: true                 // Allow cookies/session data
 }));
 
-// ✅ Middleware setup
+//  Middleware setup
 app.use(express.json()); // Parse JSON bodies
 
-// ✅ Express-session setup (for authentication)
+//  Express-session setup (for authentication)
 app.use(session({
   secret: 'your_secret_key_here', // Change this in production
   resave: false,
@@ -24,7 +24,7 @@ app.use(session({
   cookie: { secure: false, httpOnly: true } // Secure: true in production with HTTPS
 }));
 
-// ✅ Connect to MongoDB
+//  Connect to MongoDB
 mongoose.connect('mongodb+srv://shamuraanim7:1234@cluster0.iziuig8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
@@ -32,7 +32,7 @@ mongoose.connect('mongodb+srv://shamuraanim7:1234@cluster0.iziuig8.mongodb.net/?
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// ✅ User Schema
+//  User Schema
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true }
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// ✅ Registration Endpoint
+//  Registration Endpoint
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -69,7 +69,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// ✅ Login Endpoint (Session-based Authentication)
+//  Login Endpoint (Session-based Authentication)
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -98,7 +98,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// ✅ Authentication Middleware
+//  Authentication Middleware
 function isAuthenticated(req, res, next) {
   if (req.session && req.session.user) {
     return next();
@@ -107,7 +107,7 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-// ✅ Protected Route: Dashboard
+//  Protected Route: Dashboard
 app.get('/dashboard', isAuthenticated, (req, res) => {
   res.status(200).json({
     msg: '🏠 Welcome to your dashboard!',
