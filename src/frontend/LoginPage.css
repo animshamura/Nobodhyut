@@ -1,0 +1,130 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Centering the Login Container */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(6px);
+  }
+  
+  /* Login Card */
+  .auth-container {
+    width: 400px;
+    padding: 35px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Title */
+  .auth-container h1 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Input Fields */
+  .auth-container label {
+    display: block;
+    text-align: left;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1); /* Darker input background */
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Placeholder Styling */
+  .auth-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Input Focus Effect */
+  .auth-container input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid #5563DE;
+    outline: none;
+  }
+  
+  /* Button Styling */
+  .auth-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4452C9, #6F79FF); /* Slightly darker gradient */
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Button Hover */
+  .auth-container button:hover {
+    background: linear-gradient(135deg, #5563DE, #8891FF); /* Lighter gradient on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Error & Success Messages */
+  .error, .message {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .error {
+    color: #D8000C;
+    background: rgba(255, 0, 0, 0.2);
+  }
+  
+  .message {
+    color: #4F8A10;
+    background: rgba(0, 255, 0, 0.2);
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .auth-container {
+      width: 90%;
+      padding: 25px;
+    }
+  }
+  
